@@ -18,13 +18,18 @@ http.createServer(function(req, res){
 		var queryParam = qs.parse(requestURL.query);
 		var YaParam = queryParam.yaparam;
 		var GaParam = queryParam.gaparam;
-		// console.log('queryParam',queryParam);
+		console.log('queryParam',queryParam);
 		
 
-		if (YaParam && YaParam.id && YaParam.reachGoal) {
+		// Test Yaparam http://localhost:8080/track.gif?yaparam[id]=22718770&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=1&yaparam[reachGoal][params][order2]=2
+		if (YaParam && YaParam.id && typeof YaParam.id  == 'string' && YaParam.reachGoal && typeof YaParam.reachGoal.target == 'string') {
 			var yaCounter = yametrika.counter({id: YaParam.id});
 			yaCounter.req(req);
-			yaCounter.reachGoal(YaParam.reachGoal);			
+			var goalParams = YaParam.reachGoal.params || {};
+
+			console.log(goalParams);
+
+			yaCounter.reachGoal(YaParam.reachGoal.target, goalParams);			
 		}
 
 		if (GaParam && GaParam.id && GaParam.category && GaParam.action) {
