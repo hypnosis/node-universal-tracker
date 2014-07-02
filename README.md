@@ -48,21 +48,23 @@ Ex: **yaparam[reachGoal][params][order]=perfect_body**
 Googla Analytics ID
 UA_XXXXXXXX_1
 
+#### Event (reachGoal)
+Send ga.event('category','action'[,'label', 'value']) to Google Analytics
 
-#### gaparam[category]
+#### gaparam[event][category]
 
 Goals category
 
-#### gaparam[action]=buy
+#### gaparam[event][action]
 
 Goals action
 
-#### gaparam[label]
+#### gaparam[event][label]
 
 Goals label
 
 
-#### gaparam[value]
+#### gaparam[event][value]
 
 Integer value for goal
 
