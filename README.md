@@ -26,7 +26,7 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 `http://yourdomain/track.gif`
 
-### Query Params
+### YandexMetrika Params
 
 #### yaparam[id]
 
@@ -42,6 +42,7 @@ Optional param name for your Yandex Metrika Goal
 
 Ex: **yaparam[reachGoal][params][order]=perfect_body**
 
+### Google Analytics Params
 
 #### gaparam[id]
 
