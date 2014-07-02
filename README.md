@@ -26,46 +26,45 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 `http://yourdomain/track.gif`
 
-### YandexMetrika Params
+## YandexMetrika Params
 
-#### yaparam[id]
+### yaparam[id]
 
 Yandex.Metrika ID
 
-#### yaparam[reachGoal][target]
+### yaparam[reachGoal][target]
 
 Name of your goal in YandexMetrika (see Yandex.Metrika DOCS)
 
-#### yaparam[reachGoal][params][...]
+### yaparam[reachGoal][params][...]
 
 Optional param name for your Yandex Metrika Goal
 
 Ex: **yaparam[reachGoal][params][order]=perfect_body**
 
-### Google Analytics Params
+## Google Analytics Params
 
-#### gaparam[id]
+### gaparam[id]
 
 Googla Analytics ID
 UA_XXXXXXXX_1
 
-#### Event (reachGoal)
+### Event (reachGoal)
 Send ga.event('category','action'[,'label', 'value']) to Google Analytics
 
-#### gaparam[event][category]
+### gaparam[event][category]
 
 Goals category
 
-#### gaparam[event][action]
+### gaparam[event][action]
 
 Goals action
 
-#### gaparam[event][label]
+### gaparam[event][label]
 
 Goals label
 
-
-#### gaparam[event][value]
+### gaparam[event][value]
 
 Integer value for goal
 
