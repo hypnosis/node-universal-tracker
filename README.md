@@ -18,6 +18,28 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 ## Using
 
 
-```sh
+### Example using
+`
 http://YOUR_DOMAIN/track.gif?yaparam[id]=YANDEX_METRIKA_ID&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=perfect_body&gaparam[id]=UA-XXXXXXXX-1&gaparam[category]=action&gaparam[action]=buy&gaparam[label]=perfect_body
-```
+`
+
+### URL
+
+`http://yourdomain/track.gif`
+
+### Query Params
+
+#### yaparam[id]
+
+Yandex.Metrika ID
+
+#### yaparam[reachGoal][target]
+
+Name of your goal in YandexMetrika (see Yandex.Metrika DOCS)
+
+#### yaparam[reachGoal][params][...]
+
+Optional param name for your Yandex Metrika Goal
+
+Ex: `yaparam[reachGoal][params][order]=perfect_body`
+
