@@ -53,7 +53,7 @@ UA_XXXXXXXX_1
 
 Goals category
 
-#### gaparam[action]=buy&gaparam[label]
+#### gaparam[action]=buy
 
 Goals action
 
