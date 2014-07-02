@@ -17,19 +17,28 @@ http.createServer(function(req, res){
 
 		var queryParam = qs.parse(requestURL.query);
 		var YaParam = queryParam.yaparam;
-		var GaParam = queryParam.gaparam;
-		console.log('queryParam',queryParam);
-		
+		var GaParam = queryParam.gaparam;		
 
-		// Test Yaparam http://localhost:8080/track.gif?yaparam[id]=22718770&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=1&yaparam[reachGoal][params][order2]=2
-		if (YaParam && YaParam.id && typeof YaParam.id  == 'string' && YaParam.reachGoal && typeof YaParam.reachGoal.target == 'string') {
+		if (YaParam && YaParam.id) {
 			var yaCounter = yametrika.counter({id: YaParam.id});
-			yaCounter.req(req);
-			var goalParams = YaParam.reachGoal.params || {};
+				yaCounter.req(req);
 
-			console.log(goalParams);
+			// Test Yaparam http://localhost:8080/track.gif?yaparam[id]=22718770&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=1&yaparam[reachGoal][params][order2]=2
+			if (YaParam.reachGoal && typeof YaParam.reachGoal.target == 'string') {
+				
+				var goalParams = YaParam.reachGoal.params && typeof YaParam.reachGoal.params == 'object' || {};
+				yaCounter.reachGoal(YaParam.reachGoal.target, goalParams);			
+			}
 
-			yaCounter.reachGoal(YaParam.reachGoal.target, goalParams);			
+			// Test Yaparam http://localhost:8080/track.gif?yaparam[id]=22718770&yaparam[hit][url]=http://YOUR.HOST
+			if (YaParam.hit && YaParam.hit.url) {
+
+				var hitParams = YaParam.hit.params && typeof YaParam.hit.params == 'object' || {};
+				var hitTitle = YaParam.hit.title || '';
+				var hitReferer = YaParam.hit.referer || YaParam.hit.url;
+				
+				yaCounter.hit(YaParam.hit.url, hitTitle, hitReferer, hitParams);
+			}
 		}
 
 		if (GaParam && GaParam.id) {
@@ -37,16 +46,12 @@ http.createServer(function(req, res){
 			
 			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[category]=test&gaparam[action]=buy&gaparam[label]=label
 			if (GaParam.event && GaParam.event.category && GaParam.event.action) {
-				gaCounter.event(GaParam.event.category,GaParam.event.action, GaParam.event.label, GaParam.event.value, function(){
-					// console.log('send')
-				});
+				gaCounter.event(GaParam.event.category,GaParam.event.action, GaParam.event.label, GaParam.event.value).send();				
 			}
 
-			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[category]=test&gaparam[action]=buy&gaparam[label]=label
+			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[pageview][page]='/buy'&gaparam[pageview][hostname]=http://HOST.NAME
 			if (GaParam.pageview && GaParam.pageview.page && GaParam.pageview.hostname) {
-				gaCounter.pageview(GaParam.pageview.page,GaParam.pageview.title || '',GaParam.pageview.hostname, function(){
-					console.log('pageview')
-				});
+				gaCounter.pageview(GaParam.pageview.page,GaParam.pageview.title || '',GaParam.pageview.hostname).send();
 			}
 
 			
