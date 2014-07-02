@@ -32,11 +32,27 @@ http.createServer(function(req, res){
 			yaCounter.reachGoal(YaParam.reachGoal.target, goalParams);			
 		}
 
-		if (GaParam && GaParam.id && GaParam.category && GaParam.action) {
+		if (GaParam && GaParam.id) {
 			var gaCounter = ua(GaParam.id);
-			gaCounter.event(GaParam.category,GaParam.action, GaParam.label, GaParam.value).send();
+			
+			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[category]=test&gaparam[action]=buy&gaparam[label]=label
+			if (GaParam.event && GaParam.event.category && GaParam.event.action) {
+				gaCounter.event(GaParam.event.category,GaParam.event.action, GaParam.event.label, GaParam.event.value, function(){
+					// console.log('send')
+				});
+			}
 
+			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[category]=test&gaparam[action]=buy&gaparam[label]=label
+			if (GaParam.pageview && GaParam.pageview.page && GaParam.pageview.hostname) {
+				gaCounter.pageview(GaParam.pageview.page,GaParam.pageview.title || '',GaParam.pageview.hostname, function(){
+					console.log('pageview')
+				});
+			}
+
+			
 		}
+
+		
 		
 		
 	} else { 
