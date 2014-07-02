@@ -32,7 +32,7 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 Yandex.Metrika ID
 
-## yandexMetrikaXXXX.reachGoal(...)
+## yandexMetrikaXXXX.reachGoal(...) [DOCS](https://help.yandex.ru/metrika/objects/reachgoal.xml)
 
 This params used for invoke `.reachGoal` method, to tell metrika, goal is reached.
 
@@ -46,7 +46,7 @@ Optional param name for your Yandex Metrika Goal
 
 Ex: **yaparam[reachGoal][params][order]=perfect_body**
 
-## yandexMetrikaXXXXX.hit(...) (yaparam[hit][...])
+## yandexMetrikaXXXXX.hit(...) [DOCS](https://help.yandex.ru/metrika/objects/hit.xml)
 
 This params used for invoke `.hit` method, to tell metrika, page is visited (hit)
 
@@ -70,7 +70,8 @@ Optional param referer for your Yandex Metrika hit (default uses url params)
 Googla Analytics ID
 UA_XXXXXXXX_1
 
-## Google Analytics send event ga('send','event', ...)
+## Google Analytics send event ga('send','event', ...) [DOCS](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
+
 Send ga.event('category','action'[,'label', 'value']) to Google Analytics
 
 ### gaparam[event][category] **required**
@@ -89,7 +90,7 @@ Goals label
 
 Integer value for goal
 
-## Google Analytics send pageview ga('send','pageview', ...) (gaparam[pageview][...])
+## Google Analytics send pageview ga('send','pageview', ...) [DOCS](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages)
 
 ### gaparam[pageview][page] **required**
 
