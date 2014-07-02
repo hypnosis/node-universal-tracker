@@ -32,6 +32,8 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 Yandex.Metrika ID
 
+## yandexMetrikaXXXX.ReachGoal() (yaparam[reachGoal][...])
+
 ### yaparam[reachGoal][target]
 
 Name of your goal in YandexMetrika (see Yandex.Metrika DOCS)
@@ -49,7 +51,7 @@ Ex: **yaparam[reachGoal][params][order]=perfect_body**
 Googla Analytics ID
 UA_XXXXXXXX_1
 
-### Event (reachGoal)
+### Google Analytics send Event ga.event(...) (gaparam[event][...])
 Send ga.event('category','action'[,'label', 'value']) to Google Analytics
 
 ### gaparam[event][category]
