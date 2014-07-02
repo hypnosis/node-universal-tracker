@@ -49,7 +49,7 @@ http.createServer(function(req, res){
 				gaCounter.event(GaParam.event.category,GaParam.event.action, GaParam.event.label, GaParam.event.value).send();				
 			}
 
-			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[pageview][page]='/buy'&gaparam[pageview][hostname]=http://HOST.NAME
+			// http://tracker.tentak.li/track.gif?&gaparam[id]=UA-45217027-1&gaparam[pageview][page]='/buy'&gaparam[pageview][hostname]=http://HOST.NAME&gaparam[pageview][title]=some_title
 			if (GaParam.pageview && GaParam.pageview.page && GaParam.pageview.hostname) {
 				gaCounter.pageview(GaParam.pageview.page,GaParam.pageview.title || '',GaParam.pageview.hostname).send();
 			}
