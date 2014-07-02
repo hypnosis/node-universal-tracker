@@ -32,7 +32,7 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 Yandex.Metrika ID
 
-## yandexMetrikaXXXX.ReachGoal(...) (yaparam[reachGoal][...])
+## yandexMetrikaXXXX.ReachGoal(...)
 
 This params used for invoke `.reachGoal` method, to tell metrika, goal is reached.
 
@@ -70,7 +70,7 @@ Optional param referer for your Yandex Metrika hit (default uses url params)
 Googla Analytics ID
 UA_XXXXXXXX_1
 
-## Google Analytics send Event ga('send','event', ...) (gaparam[event][...])
+## Google Analytics send Event ga('send','event', ...)
 Send ga.event('category','action'[,'label', 'value']) to Google Analytics
 
 ### gaparam[event][category] **required**
