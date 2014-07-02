@@ -19,13 +19,13 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 
 ### Example using
-`
+**
 http://YOUR_DOMAIN/track.gif?yaparam[id]=YANDEX_METRIKA_ID&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=perfect_body&gaparam[id]=UA-XXXXXXXX-1&gaparam[category]=action&gaparam[action]=buy&gaparam[label]=perfect_body
-`
+**
 
 ### URL
 
-`http://yourdomain/track.gif`
+**http://yourdomain/track.gif**
 
 ### Query Params
 
@@ -41,5 +41,29 @@ Name of your goal in YandexMetrika (see Yandex.Metrika DOCS)
 
 Optional param name for your Yandex Metrika Goal
 
-Ex: `yaparam[reachGoal][params][order]=perfect_body`
+Ex: **yaparam[reachGoal][params][order]=perfect_body**
+
+
+#### gaparam[id]
+
+Googla Analytics ID
+UA_XXXXXXXX_1
+
+
+#### gaparam[category]
+
+Goals category
+
+#### gaparam[action]=buy&gaparam[label]
+
+Goals action
+
+#### gaparam[label]
+
+Goals label
+
+
+#### gaparam[value]
+
+Integer value for goal
 
