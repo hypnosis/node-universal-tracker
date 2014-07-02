@@ -5,6 +5,16 @@ Application for tracking goal popular counter such as Google Analytics and Yande
 This service provides 1 pixel invisible gif image. You can insert this image to everywhere: email, blog, etc...
 
 
+## Installation
+
+```sh
+$ git clone git@github.com:hypnosis/node-universal-tracker.git
+$ node app.js
+```
+
+Visit your browser to `http://localhost:8080` or deploy this application to server (Heroku)
+
+
 ## Using
 
 
