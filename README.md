@@ -40,7 +40,8 @@ this example do:
 
 ### URL 
 
-`http://yourdomain/track.gif`
+`http://your.app.domain/track.gif`
+
 
 ## YandexMetrika Params
 
