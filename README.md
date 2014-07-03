@@ -20,14 +20,14 @@ Visit your browser to `http://localhost:8080` or deploy this application to serv
 
 ### Example using
 
-`http://YOUR_DOMAIN/track.gif?yaparam[id]=YANDEX_METRIKA_ID&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=perfect_body&yaparam[hit][url]=http://your.domain/buy&gaparam[id]=UA-XXXXXXXX-1&gaparam[event][category]=action&gaparam[event][action]=buy&gaparam[event][label]=perfect_body&gaparam[pageview][page]=/buy&gaparam[pageview][hostname]=http://your.domain/`
+`http://YOUR_DOMAIN/track.gif?yaparam[id]=YANDEX_METRIKA_ID&yaparam[reachGoal][target]=buy&yaparam[reachGoal][params][order]=perfect_body&yaparam[hit][url]=http://your.domain/buy&gaparam[id]=UA-XXXXXXXX-1&gaparam[event][category]=action&gaparam[event][action]=buy&gaparam[event][label]=perfect_body&gaparam[pageview][page]=/buy&gaparam[pageview][hostname]=http://your.domain/&gaparam[pageview][title]=thanks_for_buying`
 
 this example do:
 
  - yandexMetrikaXXXX.reachGoal('buy',{order: 'perfect_body'});
  - yandexMetrikaXXXX.hit('http://your.domain/buy');
  - ga('send','event','action','buy','perfect_body');
- - ga('send', 'pageview', '/buy', '', 'http://your.domain');
+ - ga('send', 'pageview', '/buy', 'http://your.domain', 'thanks_for_buying');
 
 ### URL 
 
