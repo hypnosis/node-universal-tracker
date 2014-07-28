@@ -4,10 +4,14 @@ var request = require('request');
 var qs = require('qs');
 var yametrika = require('yametrika');
 var ua = require('universal-analytics');
+var fs = require('fs');
+
 
  
 http.createServer(function(req, res){
 	var requestURL = url.parse(req.url, true)
+
+
 	
 	if (requestURL['pathname'] == '/track.gif') {
 		var imgHex = '47494638396101000100800000dbdfef00000021f90401000000002c00000000010001000002024401003b';
@@ -61,7 +65,8 @@ http.createServer(function(req, res){
 		
 		
 	} else { 
-		res.writeHead(400, {'Content-Type': 'text/plain' });
-		res.end('');
+		var index = fs.readFileSync('index.html');
+		res.writeHead(200, {'Content-Type': 'text/html'});
+  		res.end(index);
 	}
 }).listen(process.env['PORT'] || 8080); 
