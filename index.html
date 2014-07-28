@@ -39,10 +39,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class=" text-center">Tick-Track.me <small>&mdash;  Universal proxy tracking system</small></h1>
+				<h1 class=" text-center">Tick-Track.me <small>&mdash; Universal proxy tracking system</small></h1>
 				<div class="row">
 					<div class="col-md-1">
-						<div class="transparent-pic img-rounded"></div> 
+						<div class="transparent-pic thumbnail"></div> 
 					</div>
 					<div class="col-md-11">
 						<p>This script generate 1&times;1 pixel transparent gif picture and send proxy request to your google analytics and yandex metrika API </p>
@@ -289,17 +289,17 @@
 			if (r.get('yaId')) generatedParams.push('yaparam[id]=' +  r.get('yaId'));
 
 			// YaParams Page
-			if (r.get('yaPageUrl')) generatedParams.push('yaparam[hit][url]=' +  r.get('yaPageUrl'));
-			if (r.get('yaPageTitle')) generatedParams.push('yaparam[hit][title]=' +  r.get('yaPageTitle'));
-			if (r.get('yaPageReferer')) generatedParams.push('yaparam[hit][referer]=' +  r.get('yaPageReferer'));
+			if (r.get('yaPageUrl')) generatedParams.push('yaparam[hit][url]=' +  encodeURIComponent(r.get('yaPageUrl')));
+			if (r.get('yaPageTitle')) generatedParams.push('yaparam[hit][title]=' +  encodeURIComponent(r.get('yaPageTitle')));
+			if (r.get('yaPageReferer')) generatedParams.push('yaparam[hit][referer]=' +  encodeURIComponent(r.get('yaPageReferer')));
 
 			// YaParams Goal
-			if (r.get('yaGoalTarget')) generatedParams.push('yaparam[reachGoal][target]=' +  r.get('yaGoalTarget'));
+			if (r.get('yaGoalTarget')) generatedParams.push('yaparam[reachGoal][target]=' +  encodeURIComponent(r.get('yaGoalTarget')));
 			
 			if (r.get('yaGoalParam') && r.get('yaGoalParam').length ) {
 				for (var i in r.get('yaGoalParam')) {
 					var param = r.get('yaGoalParam')[i];
-					if (param.yaGoalParamName) generatedParams.push('yaparam[reachGoal][' +  param.yaGoalParamName + ']=' + param.yaGoalParamValue);
+					if (param.yaGoalParamName) generatedParams.push('yaparam[reachGoal][' +  encodeURIComponent(param.yaGoalParamName) + ']=' + encodeURIComponent(param.yaGoalParamValue));
 				}
 			}
 			
@@ -308,15 +308,15 @@
 			if (r.get('aId')) generatedParams.push('gaparam[id]=' +  r.get('aId'));
 
 			// GaParams Page Hit
-			if (r.get('aPageUrl')) generatedParams.push('gaparam[pageview][page]=' +  r.get('aPageUrl'));
-			if (r.get('aPageTitle')) generatedParams.push('gaparam[pageview][title]=' +  r.get('aPageTitle'));
-			if (r.get('aPageHostname')) generatedParams.push('gaparam[pageview][hostname]=' +  r.get('aPageHostname'));
+			if (r.get('aPageUrl')) generatedParams.push('gaparam[pageview][page]=' +  encodeURIComponent(r.get('aPageUrl')));
+			if (r.get('aPageTitle')) generatedParams.push('gaparam[pageview][title]=' +  encodeURIComponent(r.get('aPageTitle')));
+			if (r.get('aPageHostname')) generatedParams.push('gaparam[pageview][hostname]=' +  encodeURIComponent(r.get('aPageHostname')));
 
 			// GaParams Goal
-			if (r.get('aGoalCategory')) generatedParams.push('gaparam[event][category]=' +  r.get('aGoalCategory'));
-			if (r.get('aGoalAction')) generatedParams.push('gaparam[event][action]=' +  r.get('aGoalAction'));
-			if (r.get('aGoalLabel')) generatedParams.push('gaparam[event][label]=' +  r.get('aGoalLabel'));
-			if (r.get('aGoalValue')) generatedParams.push('gaparam[event][value]=' +  r.get('aGoalValue'));
+			if (r.get('aGoalCategory')) generatedParams.push('gaparam[event][category]=' +  encodeURIComponent(r.get('aGoalCategory')));
+			if (r.get('aGoalAction')) generatedParams.push('gaparam[event][action]=' +  encodeURIComponent(r.get('aGoalAction')));
+			if (r.get('aGoalLabel')) generatedParams.push('gaparam[event][label]=' + encodeURIComponent(r.get('aGoalLabel')));
+			if (r.get('aGoalValue')) generatedParams.push('gaparam[event][value]=' + encodeURIComponent(r.get('aGoalValue')));
 
 
 			generatedImgCode = '<img alt="" width="1" height="1" src="' + generatedLink + generatedParams.join('&') + '" />';

@@ -21,7 +21,9 @@ http.createServer(function(req, res){
 
 		var queryParam = qs.parse(requestURL.query);
 		var YaParam = queryParam.yaparam;
-		var GaParam = queryParam.gaparam;		
+		var GaParam = queryParam.gaparam;
+
+		console.log(queryParam);
 
 		if (YaParam && YaParam.id) {
 			var yaCounter = yametrika.counter({id: YaParam.id});
