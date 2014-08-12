@@ -9,7 +9,10 @@ var fs = require('fs');
 
  
 http.createServer(function(req, res){
-	var requestURL = url.parse(req.url, true)
+	var patt = /\&amp;/g;
+	var sanitazedUrl = req.url.replace(patt, '&');
+
+	var requestURL = url.parse(sanitazedUrl, true)
 
 
 	
@@ -17,13 +20,14 @@ http.createServer(function(req, res){
 		var imgHex = '47494638396101000100800000dbdfef00000021f90401000000002c00000000010001000002024401003b';
 		var imgBinary = new Buffer(imgHex, 'hex');
 		res.writeHead(200, {'Content-Type': 'image/gif' });
-		res.end(imgBinary, 'binary');
+		res.end(imgBinary, 'binary');		
+		
 
 		var queryParam = qs.parse(requestURL.query);
 		var YaParam = queryParam.yaparam;
 		var GaParam = queryParam.gaparam;
 
-		console.log(queryParam);
+		// console.log(queryParam);
 
 		if (YaParam && YaParam.id) {
 			var yaCounter = yametrika.counter({id: YaParam.id});
