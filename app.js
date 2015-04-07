@@ -27,7 +27,7 @@ http.createServer(function(req, res){
 		var YaParam = queryParam.yaparam;
 		var GaParam = queryParam.gaparam;
 
-		// console.log(queryParam);
+		console.log(queryParam);
 
 		if (YaParam && YaParam.id) {
 			var yaCounter = yametrika.counter({id: YaParam.id});
@@ -75,4 +75,5 @@ http.createServer(function(req, res){
 		res.writeHead(200, {'Content-Type': 'text/html'});
   		res.end(index);
 	}
-}).listen(process.env['PORT'] || 8080); 
+}).listen(process.env['PORT'] || 8080);
+console.log('listen :', process.env['PORT'] || 8080)
